@@ -1,4 +1,4 @@
-Ratings-Storyboard-Tutorial
+Ratings Storyboard Tutorial
 ===========================
 
 An iOS Storyboard tutorial from the following site:
