@@ -27,6 +27,11 @@
 	player.rating = 5;
 	[players addObject:player];
 	player = [[Player alloc] init]; // Clear and re-initialize or previous object of "player" will be overwritten with Bill Evans
+    player.name = @"Eli Crider";
+	player.game = @"Wow Wow Wubbzy and the Lost";
+	player.rating = 5;
+	[players addObject:player];
+	player = [[Player alloc] init]; // Clear and re-initialize or previous object of "player" will be overwritten with Bill Evans
     player.name = @"Bill Evans";
 	player.game = @"Tic-Tac-Toe";
 	player.rating = 4;

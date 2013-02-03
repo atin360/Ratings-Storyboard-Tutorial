@@ -175,10 +175,16 @@
 ///////
 // NEW
 ///////
+// This method gets called when the delete button (or any editting on the row I think?) gets tapped
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"delete initiated");
+
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
+        // Hide the stars (USER LESSON)
+        NSLog(@"delete tapped");
+        
 		[self.players removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
