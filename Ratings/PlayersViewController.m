@@ -7,6 +7,8 @@
 //
 
 #import "PlayersViewController.h"
+#import "Player.h"
+#import "PlayerCell.h"
 
 @interface PlayersViewController ()
 
@@ -40,30 +42,111 @@
     // Dispose of any resources that can be recreated.
 }
 
+//######################################
 #pragma mark - Table view data source
+//######################################
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.players count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+////////////
+// OLD
+////////////
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell" forIndexPath:indexPath];
+//    
+//    // Configure the cell...
+//    Player *player = [self.players objectAtIndex:indexPath.row];
+//	cell.textLabel.text = player.name;
+//	cell.detailTextLabel.text = player.game;
+//    
+//    return cell;
+//}
+
+//###########################################################################
+# pragma mark - REPLACEMENT cellForRowAtIndexPath & NEW imageForRating method
+//###########################################################################
+
+////////////
+// NEW
+////////////
+//- (UITableViewCell *)tableView:(UITableView *)tableView
+//         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // Allows for the cells to be removed from memory as they are scrolled off the screen
+//	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
+//    
+//    // Instantiate a player object from the players array based on the row being loaded
+//	Player *player = [self.players objectAtIndex:indexPath.row];
+//    
+//    // Provide a variable name for the UILabel with a tag of 100 and set the text value for it
+//	UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];
+//	nameLabel.text = player.name;
+//    
+//    // Provide a variable name for the UILabel with a tag of 101 and set the text value for it
+//	UILabel *gameLabel = (UILabel *)[cell viewWithTag:101];
+//	gameLabel.text = player.game;
+//    
+//    // Provide a variable name for the UIImageView with a tag of 102 and set the image for it via a new method called imageForRating
+//	UIImageView * ratingImageView = (UIImageView *)[cell viewWithTag:102];
+//	ratingImageView.image = [self imageForRating:player.rating];  // JAVA EQUIVALENT: ratingImageView.image = this.imageForRating(player.rating);
+//    return cell;
+//}
+
+//////////////////////////////////////////////////////////
+// NEWER (after creating a PlayerCell.h and PlayerCell.m)
+//////////////////////////////////////////////////////////
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Allows for the cells to be removed from memory as they are scrolled off the screen
+	//UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
+    PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
     
-    // Configure the cell...
+    // Instantiate a player object from the players array based on the row being loaded
+	Player *player = [self.players objectAtIndex:indexPath.row];
+    
+    // Provide a variable name for the UILabel with a tag of 100 and set the text value for it
+//	UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];
+//	nameLabel.text = player.name;
+    cell.nameLabel.text = player.name;
+    
+    // Provide a variable name for the UILabel with a tag of 101 and set the text value for it
+//	UILabel *gameLabel = (UILabel *)[cell viewWithTag:101];
+//	gameLabel.text = player.game;
+    cell.gameLabel.text = player.game;
+    
+    // Provide a variable name for the UIImageView with a tag of 102 and set the image for it via a new method called imageForRating
+//	UIImageView * ratingImageView = (UIImageView *)[cell viewWithTag:102];
+//	ratingImageView.image = [self imageForRating:player.rating];  // JAVA EQUIVALENT: ratingImageView.image = this.imageForRating(player.rating);
+    cell.ratingImageView.image = [self imageForRating:player.rating];
     
     return cell;
+}
+
+
+//
+// Method: returns the image based on the player's rating (1-5)
+//
+- (UIImage *)imageForRating:(int)rating
+{
+	switch (rating)
+	{
+		case 1: return [UIImage imageNamed:@"1StarSmall.png"];
+		case 2: return [UIImage imageNamed:@"2StarsSmall.png"];
+		case 3: return [UIImage imageNamed:@"3StarsSmall.png"];
+		case 4: return [UIImage imageNamed:@"4StarsSmall.png"];
+		case 5: return [UIImage imageNamed:@"5StarsSmall.png"];
+	}
+	return nil;
 }
 
 /*

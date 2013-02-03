@@ -17,9 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initiliaze the array to an array of up to 20 elements
 	players = [NSMutableArray arrayWithCapacity:20];
-	Player *player = [[Player alloc] init];     // Java: Player arrayPlayer = new Player();
-	player.name = @"Bill Evans";
+	Player *player = [[Player alloc] init];     // Java: Player[] player = new Player()[20];
+
+    // Populate the players array
+    player.name = @"Bill Evans";
 	player.game = @"Tic-Tac-Toe";
 	player.rating = 4;
 	[players addObject:player];
@@ -35,12 +38,21 @@
 	[players addObject:player];
     
     ////////////////////////////////////////////////////////////
-	UITabBarController *tabBarController =
-    (UITabBarController *)self.window.rootViewController;
-	UINavigationController *navigationController =
-    [[tabBarController viewControllers] objectAtIndex:0];
-	PlayersViewController *playersViewController =
-    [[navigationController viewControllers] objectAtIndex:0];
+    //  Yikes, what is that?! We want to assign the players array to the players property of PlayersViewController so it can use this array for its data source. But the app delegate doesn’t know anything about PlayersViewController yet, so it will have to dig through the storyboard to find it.
+
+    //  This is one of the limitations of storyboards that I find annoying. With Interface Builder you always had a reference to the App Delegate in your MainWindow.xib and you could make connections from your top-level view controllers to outlets on the App Delegate. That is currently not possible with storyboards. You cannot make references to the app delegate from your top-level view controllers. That’s unfortunate, but we can always get those references programmatically.
+    ////////////////////////////////////////////////////////////
+    
+    // We know that the storyboard’s initial view controller is a Tab Bar Controller, so we can look up the window’s rootViewController and cast it.
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    // The PlayersViewController sits inside a navigation controller in the first tab, so we look up that UINavigationController object
+	UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+    
+    // then ask it for its root view controller, which is the PlayersViewController that we are looking for
+	PlayersViewController *playersViewController = [[navigationController viewControllers] objectAtIndex:0];
+    
+    // finally set the array to the controller
 	playersViewController.players = players;
     return YES;
 }

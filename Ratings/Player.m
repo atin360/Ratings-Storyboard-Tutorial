@@ -10,4 +10,6 @@
 
 @implementation Player
 
+// old tutorial had 3 @synthesize lines here, will skip since modern objective-c doesn't need this anymore
+
 @end

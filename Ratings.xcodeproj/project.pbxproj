@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147C61B916BEEFF7003480E0 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147C61B816BEEFF7003480E0 /* PlayerCell.m */; };
 		149D183B16B2582C0064A57D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149D183A16B2582C0064A57D /* UIKit.framework */; };
 		149D183D16B2582C0064A57D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149D183C16B2582C0064A57D /* Foundation.framework */; };
 		149D183F16B2582C0064A57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149D183E16B2582C0064A57D /* CoreGraphics.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		147C61B716BEEFF7003480E0 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		147C61B816BEEFF7003480E0 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		149D183616B2582C0064A57D /* Ratings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ratings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		149D183A16B2582C0064A57D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		149D183C16B2582C0064A57D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,9 +144,11 @@
 				149D184916B2582C0064A57D /* AppDelegate.h */,
 				149D184A16B2582C0064A57D /* AppDelegate.m */,
 				149D185216B2582C0064A57D /* MainStoryboard.storyboard */,
-				149D188E16B268F90064A57D /* PlayersViewController.h */,
+				147C61B716BEEFF7003480E0 /* PlayerCell.h */,
+				147C61B816BEEFF7003480E0 /* PlayerCell.m */,
 				149D189116B26A1C0064A57D /* Player.h */,
 				149D189216B26A1C0064A57D /* Player.m */,
+				149D188E16B268F90064A57D /* PlayersViewController.h */,
 				149D188F16B268F90064A57D /* PlayersViewController.m */,
 				149D185516B2582C0064A57D /* ViewController.h */,
 				149D185616B2582C0064A57D /* ViewController.m */,
@@ -292,6 +297,7 @@
 				149D185716B2582C0064A57D /* ViewController.m in Sources */,
 				149D189016B268F90064A57D /* PlayersViewController.m in Sources */,
 				149D189316B26A1C0064A57D /* Player.m in Sources */,
+				147C61B916BEEFF7003480E0 /* PlayerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +414,7 @@
 				149D185C16B2582C0064A57D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

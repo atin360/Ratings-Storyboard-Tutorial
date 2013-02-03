@@ -58,26 +58,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" textLabel="cB6-kC-eya" detailTextLabel="qMK-fd-qlX" style="IBUITableViewCellStyleSubtitle" id="x58-2Z-LDB">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="55" id="x58-2Z-LDB" customClass="PlayerCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB6-kC-eya">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-Gi-Wdo">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="210" id="Tqj-a3-Bcz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMK-fd-qlX">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNn-uh-LD5">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="lBN-qv-OLy"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" tag="102" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="KHb-6L-InP">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="02H-15-5p1"/>
+                                                <constraint firstAttribute="height" constant="43" id="omr-VF-g2c"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="2s2-Gi-Wdo" firstAttribute="top" secondItem="KHb-6L-InP" secondAttribute="top" type="default" id="H94-Y2-Lis"/>
+                                    <constraint firstItem="2s2-Gi-Wdo" firstAttribute="trailing" secondItem="tNn-uh-LD5" secondAttribute="trailing" type="default" id="N1K-an-IGQ"/>
+                                    <constraint firstItem="tNn-uh-LD5" firstAttribute="bottom" secondItem="KHb-6L-InP" secondAttribute="bottom" type="default" id="O6b-BC-MPA"/>
+                                    <constraint firstAttribute="trailing" secondItem="KHb-6L-InP" secondAttribute="trailing" constant="20" type="default" id="QaT-vt-2vP"/>
+                                    <constraint firstItem="2s2-Gi-Wdo" firstAttribute="leading" secondItem="x58-2Z-LDB" secondAttribute="leading" constant="6" id="Ybg-KW-pFv"/>
+                                    <constraint firstItem="tNn-uh-LD5" firstAttribute="leading" secondItem="2s2-Gi-Wdo" secondAttribute="leading" type="default" id="hN9-Lm-bY2"/>
+                                    <constraint firstItem="KHb-6L-InP" firstAttribute="centerY" secondItem="x58-2Z-LDB" secondAttribute="centerY" type="default" id="sUE-IP-d4S"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="gameLabel" destination="tNn-uh-LD5" id="tU5-Qy-2la"/>
+                                    <outlet property="nameLabel" destination="2s2-Gi-Wdo" id="DcA-m7-yvB"/>
+                                    <outlet property="ratingImageView" destination="KHb-6L-InP" id="JrG-qt-xwv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -118,6 +144,14 @@
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PlayerCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingImageView" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="PlayersViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayersViewController.h"/>
