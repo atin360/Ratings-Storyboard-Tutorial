@@ -22,6 +22,11 @@
 	Player *player = [[Player alloc] init];     // Java: Player[] player = new Player()[20];
 
     // Populate the players array
+    player.name = @"Brian Crider";
+	player.game = @"Assassin's Creed III";
+	player.rating = 5;
+	[players addObject:player];
+	player = [[Player alloc] init]; // Clear and re-initialize or previous object of "player" will be overwritten with Bill Evans
     player.name = @"Bill Evans";
 	player.game = @"Tic-Tac-Toe";
 	player.rating = 4;
